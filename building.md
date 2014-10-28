@@ -66,7 +66,7 @@ Dependency list:
 
 `brew install opusfile sdl2_image sdl2 ftgl cmake glew pkg-config fontconfig python3`
 
-To fix some missing header file references links need to be create(https://github.com/SFTtech/openage/issues/16#issuecomment-60663238):
+To fix some missing header file references links need to be created (https://github.com/SFTtech/openage/issues/16#issuecomment-60663238):
 
 `ln -s /usr/local/include/opus/opus.h /usr/local/include/opus.h && \
 ln -s /usr/local/include/opus/opusfile.h /usr/local/include/opusfile.h && \

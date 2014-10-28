@@ -22,7 +22,7 @@ namespace openage {
 namespace path {
 
 Path a_star(Node start, Node end, heuristic_t heuristic) {
-    datastructure::PairingHeap<Node*> node_candidates;
+	datastructure::PairingHeap<Node*> node_candidates;
 
 	start.past_cost = 0;
 	start.future_cost = start.past_cost + heuristic(start, end);

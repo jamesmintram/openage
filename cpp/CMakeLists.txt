@@ -32,10 +32,10 @@ add_subdirectory("audio")
 add_subdirectory("console")
 add_subdirectory("coord")
 add_subdirectory("job")
-add_subdirectory("pathfinding")
+#add_subdirectory("pathfinding")
 add_subdirectory("shader")
 add_subdirectory("util")
-add_subdirectory("datastructure")
+#add_subdirectory("datastructure")
 add_subdirectory("testing")
 
 # finalize testing

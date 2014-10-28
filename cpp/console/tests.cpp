@@ -4,12 +4,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
-#ifdef __APPLE__
-#   include <util.h>
-#else
-#   include <pty.h>
-#endif
-
+#include "../crossplatform/pty.h"
 #include "../console/buf.h"
 #include "../console/draw.h"
 #include "../log.h"

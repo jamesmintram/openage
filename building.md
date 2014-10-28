@@ -62,6 +62,20 @@ Dependency list:
  - `sudo apt-get install cmake libfreetype6-dev python3-dev libglew-dev libsdl2-dev ftgl-dev  libsdl2-image-dev libopusfile-dev libfontconfig1-dev opus-tools`
 
 
+### Prerequisite steps for OSX users (Mavericks 10.9)
+
+`brew install opusfile sdl2_image sdl2 ftgl cmake glew pkg-config fontconfig python3`
+
+To fix some missing header file references links need to be create(https://github.com/SFTtech/openage/issues/16#issuecomment-60663238):
+
+`ln -s /usr/local/include/opus/opus.h /usr/local/include/opus.h && \
+ln -s /usr/local/include/opus/opusfile.h /usr/local/include/opusfile.h && \
+ln -s /usr/local/include/opus/opus_defines.h /usr/local/include/opus_defines.h && \
+ln -s /usr/local/include/opus/opus_multistream.h /usr/local/include/opus_multistream.h && \
+ln -s /usr/local/include/opus/opus_types.h /usr/local/include/opus_types.h`
+
+
+
 ## Build procedure
 
 ### For developers/users who want to try the project
@@ -99,6 +113,20 @@ Dependency list:
    invocation.
  - For `make install` use `DESTDIR=/tmp/your_temporary_packaging_dir`,
    which will then be packed/installed by your package manager.
+
+
+### OSX Notes
+
+There appears to be some issues with CMake and Brew on Mavericks - checkout (https://github.com/SFTtech/openage/issues/16)
+
+The configure needs to be tweaked for OSX:
+
+`./configure --raw-cmake-args \
+  -DPYTHON_INCLUDE_DIR=/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/include/python3.4m/ \
+  -DPYTHON_LIBRARY=/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/libpython3.4.dylib \
+  -DPython_FRAMEWORKS=/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework\
+  -DOPUSFILE_INCLUDE_DIR=/usr/local/Cellar/opusfile/0.6/include/ \
+  -DSDL2IMAGE_INCLUDE_DIRS=/usr/local/Cellar/sdl2_image/2.0.0_1/include/`
 
 
 ## FAQ

@@ -15,9 +15,8 @@ def generate_all_raw(cpp_src_dir):
     for filename, content in datafile.generate_gamedata_structs(cpp_src_dir):
         yield "gamedata/%s" % filename, content
 
-    #Disabled test generation for now
-    #from . import cpp_tests
-    #yield cpp_tests.generate_testregistration(cpp_src_dir)
+    from . import cpp_tests
+    yield cpp_tests.generate_testregistration(cpp_src_dir)
 
 
 def generate_all(cpp_src_dir):
